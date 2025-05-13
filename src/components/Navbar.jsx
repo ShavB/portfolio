@@ -15,12 +15,13 @@ export default function Navbar() {
         <div className="px-4 flex h-16 items-center justify-between">
           <div>
             <a href="#">
-              <SiLinuxserver size={30} />
+              <SiLinuxserver data-testid="logo-icon" size={30} />
             </a>
           </div>
           <div className="flex gap-2 items-center">
             <NavbarTabElements className="hidden sm:flex gap-2" />
             <IoSearchOutline
+              data-testid="search-icon"
               className="hover:bg-slate-800 p-2 rounded-2xl cursor-pointer"
               size={40}
             />

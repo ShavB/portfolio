@@ -8,6 +8,12 @@ export default defineConfig({
   test: {
     globals: true,
     environment: "jsdom",
-    setupFiles: "__tests__/setup.js",
+    setupFiles: "__tests__/setup.js", // or your setup file
+    coverage: {
+      reporter: ["text", "html", "lcov"], // output formats
+      all: true, // include untested files
+      include: ["/**/*.{js,ts,jsx,tsx}"], // adjust if needed
+      exclude: ["**/__tests__/**", "**/*.test.*"], // exclude tests
+    },
   },
 });
