@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { IoSearchOutline } from "react-icons/io5";
 import { RxHamburgerMenu } from "react-icons/rx";
-import NavbarTabElements from "../components/NavbarTabElements";
+import NavbarTabElements from "../features/NavbarTabElements";
 import { SiLinuxserver } from "react-icons/si";
 
 export default function Navbar() {
