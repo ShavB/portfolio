@@ -3,6 +3,7 @@ import { IoSearchOutline } from "react-icons/io5";
 import { RxHamburgerMenu } from "react-icons/rx";
 import NavbarTabElements from "../features/NavbarTabElements";
 import { SiLinuxserver } from "react-icons/si";
+import { Link } from "react-router";
 
 export default function Navbar() {
   const [activeMenu, setActiveMenu] = useState(false);
@@ -13,7 +14,6 @@ export default function Navbar() {
     setActiveMenu(!activeMenu);
   };
   const closeMenu = (e) => {
-    console.log(menuRef.current.contains(e.target));
     if (menuRef.current && !menuRef.current.contains(e.target)) {
       setActiveMenu(false);
     }
@@ -31,13 +31,13 @@ export default function Navbar() {
   }, []);
 
   return (
-    <div className="fixed w-full top-2 flex items-center justify-center">
+    <div className="fixed w-full top-2 flex items-center justify-center z-50">
       <div className="rounded-2xl w-full mx-4 px-2 sm:px-20 md:px-25 lg:mx-40 xl:mx-60">
         <div className="px-4 flex h-16 items-center justify-between">
           <div>
-            <a href="#">
+            <Link to="/">
               <SiLinuxserver data-testid="logo-icon" size={30} />
-            </a>
+            </Link>
           </div>
           <div className="flex gap-2 items-center">
             <NavbarTabElements className="hidden sm:flex gap-2" />
