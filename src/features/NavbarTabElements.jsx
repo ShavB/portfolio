@@ -1,39 +1,21 @@
+import { forwardRef } from "react";
 import { Link } from "react-router";
+import { tabName } from "../utils/TabName";
 
-export default function NavbarTabElements({ className }) {
-  const tabName = [
-    {
-      id: 1,
-      label: "Home",
-      path: "/",
-    },
-    {
-      id: 2,
-      label: "Blog",
-      path: "/blog",
-    },
-    {
-      id: 3,
-      label: "Projects",
-      path: "/projects",
-    },
-    {
-      id: 4,
-      label: "Misc",
-      path: "/misc",
-    },
-  ];
+const NavbarTabElements = forwardRef(({ className, handleMenuButton }, ref) => {
   return (
-    <div className={className}>
+    <div ref={ref} className={className}>
       {tabName.map((tab) => (
-        <a
-          href="#"
-          className="block px-2 hover:bg-slate-800 rounded-2xl p-2"
+        <div
+          className="block h-full m-3 px-2 hover:border-b-2 rounded-1xl"
           key={tab.id}
+          onClick={handleMenuButton}
         >
           <Link to={tab.path}>{tab.label}</Link>
-        </a>
+        </div>
       ))}
     </div>
   );
-}
+});
+
+export default NavbarTabElements;
