@@ -7,6 +7,8 @@ export default function MainCanvas() {
     <div className="w-screen h-screen fixed top-0 left-0">
       <Canvas shadows dpr={[1, 2]} camera={{ fov: 55, position: [0, 0, 10] }}>
         <Environment files="/backs.jpg" />
+        <ambientLight intensity={0} />
+        <directionalLight position={[5, 5, 5]} intensity={0.5} />
         <MainScene />
         <OrbitControls enableZoom={false} />
       </Canvas>

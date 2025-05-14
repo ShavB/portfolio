@@ -16,42 +16,19 @@ export default function MainScene() {
 
   return (
     <>
-      <group ref={hexCubeRef} position={initialPosition} rotation={[0, 0, 0]}>
+      <group
+        ref={hexCubeRef}
+        position={initialPosition}
+        rotation={[0.58, 0.7, -0.1]}
+      >
         <group ref={hexCubeSpinRef}>
           <mesh>
             <icosahedronGeometry args={[4, 0]} />
-            <meshStandardMaterial color="red" />
+            <meshStandardMaterial color="#EA580C" />
           </mesh>
           <Buttons3D />
-          {/* <Home3DButton /> */}
         </group>
       </group>
     </>
   );
-}
-
-{
-  /* <mesh
-    onClick={() => {
-      console.log("home......");
-    }}
-    onPointerOver={() => setHovered(true)}
-    onPointerOut={() => setHovered(false)}
-  >
-    <Text3D
-      position={[-1.5, 0.5, 2.9]}
-      curveSegments={20}
-      bevelEnabled
-      bevelSize={0.04}
-      bevelThickness={0.1}
-      height={0.5}
-      lineHeight={0.5}
-      letterSpacing={-0.06}
-      size={0.8}
-      font="/Inter_Bold.json"
-    >
-      {`hello\nworld`}
-      <meshNormalMaterial />
-    </Text3D>
-  </mesh> */
 }

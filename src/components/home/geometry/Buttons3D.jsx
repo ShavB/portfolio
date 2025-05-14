@@ -1,5 +1,5 @@
 import { Text3D, useCursor } from "@react-three/drei";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router";
 
 export default function Buttons3D() {
@@ -8,31 +8,36 @@ export default function Buttons3D() {
       id: 0,
       label: "Hello\nworld",
       path: "/",
-      position: [-1.5, 0.5, 2.9],
+      rotation: [0, 0, 0],
+      position: [-0.9, 0, 4],
     },
     {
       id: 1,
       label: "Home",
       path: "/",
-      position: [0.7, 2.9, 1.9],
+      rotation: [-0.75, -0.5, 1.1],
+      position: [-1.8, 1, 2],
     },
     {
       id: 2,
       label: "Blog",
       path: "/blog",
-      position: [0.7, 2.9, 1.9],
+      rotation: [-1.3, -0, 0],
+      position: [-0.8, 2.4, 1.3],
     },
     {
       id: 3,
       label: "Projects",
       path: "/projects",
-      position: [0.7, 2.9, 1.9],
+      rotation: [-1, 0.81, -0.99],
+      position: [1.14, 2.74, 0.9],
     },
     {
       id: 4,
       label: "Misc",
       path: "/misc",
-      position: [0.7, 2.9, 1.9],
+      rotation: [-3, 2.65, -4.7],
+      position: [1.65, -1.2, 1.85],
     },
   ];
 
@@ -45,7 +50,6 @@ export default function Buttons3D() {
       {tabName.map((tabs) => (
         <mesh
           onClick={() => {
-            console.log("home......");
             navigate(tabs.path);
           }}
           onPointerOver={() => setHovered(true)}
@@ -53,19 +57,19 @@ export default function Buttons3D() {
         >
           <Text3D
             position={tabs.position}
-            rotation={[-Math.PI / 2.3, 19, 2]}
+            rotation={tabs.rotation}
             curveSegments={20}
             bevelEnabled
             bevelSize={0.04}
             bevelThickness={0.1}
             height={0.5}
-            lineHeight={0.5}
-            letterSpacing={-0.06}
+            lineHeight={0.65}
+            letterSpacing={0}
             size={0.4}
-            font="/Inter_Bold.json"
+            font="/JetBrainsMono.json"
           >
             {`${tabs.label.toUpperCase()}`}
-            <meshNormalMaterial />
+            <meshToonMaterial color="white" />
           </Text3D>
         </mesh>
       ))}
