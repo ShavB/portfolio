@@ -13,7 +13,7 @@ pipeline {
 
         stage('bulding the docker image') {
             steps {
-                sh 'docker build -t shavb-portfolio:latest'
+                sh 'docker build -t shavb-portfolio:latest .'
             }
         }
     }
