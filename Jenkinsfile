@@ -1,3 +1,4 @@
+@Library ('Shared') _
 pipeline {
     agent {
         label 'portfolio-node'
@@ -6,20 +7,35 @@ pipeline {
     stages {
         stage('Checkout source code') {
             steps {
-                git branch: 'main', url: 'https://github.com/ShavB/portfolio.git'
+                script {
+                    git_clone('https://github.com/ShavB/django-view-count.git', 'main')
+                }
                 echo 'git checkout task is completed--------------------------------------->'
             }
         }
 
         stage('bulding the docker image') {
             steps {
-                sh 'docker build -t shavb-portfolio:latest .'
+                script {
+                    docker_build('shyam-portfolio', 'latest')
+                }
+                echo 'docker build completed!!!!!!!!!!!!!!!!!!!!!!!!!!!'
             }
         }
 
-        stage('Running the docker container...') {
+        stage('Pushing to Dockerhub') {
             steps {
-                sh 'docker run -d -p 8080:80 shavb-portfolio:latest '
+                echo '🛠 ️This is pushing the code! to DockerHub !!!!!!!!!!!!!!!!_-------------->'
+                script {
+                    docker_creds('shyam-portfolio', 'latest', 'shavbb')
+                }
+                echo 'This is pushing the code! to DockerHub !!!!!!!!!!!!!!!!_-------------->'
+            }
+        }
+        stage('deploy') {
+            steps {
+                echo 'This is deploying the code!'
+                sh 'docker compose up -d'
             }
         }
     }
