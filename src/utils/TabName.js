@@ -6,8 +6,8 @@ export const tabName = [
   },
   {
     id: 2,
-    label: "Blog",
-    path: "/blog",
+    label: "About",
+    path: "/about",
   },
   {
     id: 3,
@@ -18,5 +18,10 @@ export const tabName = [
     id: 4,
     label: "Misc",
     path: "/misc",
+  },
+  {
+    id: 5,
+    label: "Blog",
+    path: "/blog",
   },
 ];

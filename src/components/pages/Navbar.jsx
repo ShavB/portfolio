@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { IoSearchOutline } from "react-icons/io5";
 import { RxHamburgerMenu } from "react-icons/rx";
-import NavbarTabElements from "../features/NavbarTabElements";
+import NavbarTabElements from "../../features/NavbarTabElements";
 import { SiLinuxserver } from "react-icons/si";
 import { Link } from "react-router";
 
@@ -31,7 +31,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <div className="fixed w-full top-2 flex items-center justify-center z-50">
+    <div className="fixed w-full top-2 flex items-center justify-center z-5 border-b border-gray-500">
       <div className="rounded-2xl w-full mx-4 px-2 sm:px-20 md:px-25 lg:mx-40 xl:mx-60">
         <div className="px-4 flex h-16 items-center justify-between">
           <div>
