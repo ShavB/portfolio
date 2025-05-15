@@ -16,5 +16,11 @@ pipeline {
                 sh 'docker build -t shavb-portfolio:latest .'
             }
         }
+
+        stage('Running the docker container...') {
+            steps {
+                sh 'docker run -d -p 8080:80 shavb-portfolio:latest '
+            }
+        }
     }
 }
