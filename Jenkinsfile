@@ -26,8 +26,16 @@ pipeline {
         stage('Pushing to Dockerhub') {
             steps {
                 echo '🛠 ️This is pushing the code! to DockerHub !!!!!!!!!!!!!!!!_-------------->'
-                script {
-                    docker_creds('shyam-portfolio', 'latest', 'shavbb')
+                withCredentials([usernamePassword(
+                    'credentialsId': 'docker-hub-cred',
+                    passwordVariable: 'dockerHubPass',
+                    usernameVariable: 'dockerhubUser')
+                ]) {
+                    sh """
+                    docker login -u ${env.dockerhubUser} -p ${env.dockerHubPass}
+                    docker image tag shyam-portfolio:latest shavbb/shyam-portfolio:latest
+                    docker push ${env.dockerhubUser}/shyam-portfolio:latest
+                    """
                 }
                 echo 'This is pushing the code! to DockerHub !!!!!!!!!!!!!!!!_-------------->'
             }
