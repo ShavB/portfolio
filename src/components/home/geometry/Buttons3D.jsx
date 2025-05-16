@@ -8,7 +8,7 @@ export default function Buttons3D() {
       id: 0,
       label: "Hello\nworld",
       path: "/",
-      rotation: [0, 0, -0.26],
+      rotation: [0, 0, 0],
       position: [-0.9, 0, 4],
     },
     {

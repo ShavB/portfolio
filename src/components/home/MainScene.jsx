@@ -22,11 +22,7 @@ export default function MainScene() {
 
   return (
     <>
-      <group
-        ref={hexCubeRef}
-        position={initialPosition}
-        rotation={[0.58, 0.7, -0.1]}
-      >
+      <group ref={hexCubeRef} position={initialPosition} rotation={[0, 0, 0]}>
         <group ref={hexCubeSpinRef}>
           <mesh>
             <icosahedronGeometry args={[4, 0]} />
