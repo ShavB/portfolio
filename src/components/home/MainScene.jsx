@@ -29,7 +29,7 @@ export default function MainScene() {
       >
         <group ref={hexCubeSpinRef}>
           <mesh>
-            <icosahedronGeometry args={[2, 0]} />
+            <icosahedronGeometry args={[4, 0]} />
             <meshStandardMaterial color="#90a4ae" />
           </mesh>
           <Buttons3D />
