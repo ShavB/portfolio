@@ -8,20 +8,20 @@ export default function Buttons3D() {
       id: 0,
       label: "Hello\nworld",
       path: "/",
-      rotation: [0, 0, 0],
+      rotation: [0, 0, -0.26],
       position: [-0.9, 0, 4],
     },
     {
       id: 1,
       label: "Home",
       path: "/",
-      rotation: [-0.75, -0.5, 1.1],
+      rotation: [-0.75, -0.5, 1.2],
       position: [-1.8, 1, 2],
     },
     {
       id: 2,
-      label: "Blog",
-      path: "/blog",
+      label: "About",
+      path: "/about",
       rotation: [-1.3, -0, 0],
       position: [-0.8, 2.4, 1.3],
     },
@@ -49,6 +49,7 @@ export default function Buttons3D() {
     <>
       {tabName.map((tabs) => (
         <mesh
+          key={tabs.id}
           onClick={() => {
             navigate(tabs.path);
           }}
@@ -69,7 +70,7 @@ export default function Buttons3D() {
             font="/JetBrainsMono.json"
           >
             {`${tabs.label.toUpperCase()}`}
-            <meshToonMaterial color="white" />
+            <meshToonMaterial color="#ffee58" />
           </Text3D>
         </mesh>
       ))}
