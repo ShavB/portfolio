@@ -31,8 +31,8 @@ export default function Navbar() {
   }, []);
 
   return (
-    <div className="fixed w-full top-2 flex items-center justify-center z-50 border-b border-gray-500 bg-">
-      <div className="rounded-2xl w-full mx-4 px-2 sm:px-20 md:px-25 lg:mx-40 xl:mx-60">
+    <div className="fixed w-full top-0 flex items-center justify-center z-50 border-b border-gray-500 bg-[#1C2530]">
+      <div className="rounded-2xl w-full px-2 sm:px-20 md:px-10 lg:mx-40 xl:mx-60">
         <div className="px-4 flex h-16 items-center justify-between">
           <div>
             <Link to="/">

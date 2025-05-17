@@ -31,4 +31,5 @@ body {
   height: 100vh;
   position: sticky;
   top: 0;
+  overflow: hidden;
 }
