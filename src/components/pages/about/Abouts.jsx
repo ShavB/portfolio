@@ -5,6 +5,8 @@ import { FaJenkins } from "react-icons/fa";
 import { FaAws } from "react-icons/fa";
 import { SiGrafana } from "react-icons/si";
 import { SiGithubactions } from "react-icons/si";
+import { SiDotnet } from "react-icons/si";
+import { DiNodejs } from "react-icons/di";
 
 export default function Abouts() {
   return (
@@ -112,29 +114,20 @@ export default function Abouts() {
           <div className="flex flex-col">
             <div className="flex rounded-2xl gap-3 p-2 ">
               <div className="flex basis-1/3 items-center justify-center overflow-hidden ">
-                <FaReact size={50} />
+                <SiDotnet size={50} />
               </div>
               <div className="text-sm flex flex-col basis-2/3">
-                <span className="text-xl">React</span>
-                <span>React</span>
+                <span className="text-xl">.NET</span>
+                <span>.NET</span>
               </div>
             </div>
             <div className="flex rounded-2xl gap-3 p-2 ">
               <div className="flex basis-1/3 items-center justify-center overflow-hidden ">
-                <RiTailwindCssLine size={50} />
+                <DiNodejs size={50} />
               </div>
               <div className="text-sm flex flex-col basis-2/3">
-                <span className="text-xl">Tailwind Css</span>
-                <span>Tailwind Css</span>
-              </div>
-            </div>
-            <div className="flex rounded-2xl gap-3 p-2 ">
-              <div className="flex basis-1/3 items-center justify-center overflow-hidden ">
-                <SiTypescript size={50} />
-              </div>
-              <div className="text-sm flex flex-col basis-2/3">
-                <span className="text-xl">Typescript</span>
-                <span>Typescript</span>
+                <span className="text-xl">Node Js</span>
+                <span>Node Js</span>
               </div>
             </div>
           </div>
