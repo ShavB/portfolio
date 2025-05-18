@@ -34,8 +34,8 @@ export default function Buttons3D() {
     },
     {
       id: 4,
-      label: "Misc",
-      path: "/misc",
+      label: "Contact",
+      path: "/contact",
       rotation: [-3, 2.65, -4.7],
       position: [1.65, -1.2, 1.85],
     },

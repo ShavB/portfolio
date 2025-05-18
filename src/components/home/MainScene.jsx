@@ -2,6 +2,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
 import Buttons3D from "./geometry/Buttons3D";
+import EyesModel from "./models/Eyes";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,9 +15,9 @@ export default function MainScene() {
     gsap.fromTo(
       hexCubeSpinRef.current.rotation,
       {
-        y: Math.PI,
+        y: 10,
       },
-      { y: 0, duration: 2, ease: "power2.out" }
+      { y: 0, duration: 5, ease: "power2.out" }
     );
   }, []);
 
@@ -25,10 +26,11 @@ export default function MainScene() {
       <group ref={hexCubeRef} position={initialPosition} rotation={[0, 0, 0]}>
         <group ref={hexCubeSpinRef}>
           <mesh>
-            <icosahedronGeometry args={[4, 0]} />
+            {/* <icosahedronGeometry args={[4, 0]} /> */}
+            <EyesModel position={[0, 0, 0]} />
             <meshStandardMaterial color="#90a4ae" />
           </mesh>
-          <Buttons3D />
+          {/* <Buttons3D /> */}
         </group>
       </group>
     </>

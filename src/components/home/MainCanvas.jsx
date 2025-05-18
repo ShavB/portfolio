@@ -4,11 +4,11 @@ import MainScene from "./MainScene";
 
 export default function MainCanvas() {
   return (
-    <div className="w-screen h-screen fixed top-0 left-0">
-      <Canvas shadows dpr={[1, 2]} camera={{ fov: 55, position: [0, 0, 10] }}>
+    <div className="w-[70vh] h-[70vh]">
+      <Canvas shadows dpr={[1, 2]} camera={{ fov: 33, position: [0, 0, 10] }}>
         <Environment files="/backs.jpg" />
         <ambientLight intensity={0} />
-        <directionalLight position={[5, 5, 5]} intensity={0.5} />
+        <directionalLight position={[5, 5, 5]} intensity={1} />
         <MainScene />
         <OrbitControls enableZoom={false} />
       </Canvas>
