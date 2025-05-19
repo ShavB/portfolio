@@ -1,0 +1,29 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Login to DockerHub
+        env:
+          DOCKER_USERNAME: ${{secrets.DOCKER_HUB_USERNAME}}
+          DOCKER_PASSWORD: ${{secrets.DOCKER_HUB_PASSWORD}}
+        run: echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+
+      - name: Build frontend docker image
+        run: docker build -t portfolio-frontend:latest .
+
+      - name: Push frontend Docker image
+        run: docker push portfolio-frontend:latest
+
+      - name: Build backend docker image
+        run: docker build -t portfolio-backend:latest ./backend
+
+      - name: Push backend Docker image
+        run: docker push /portfolio-backend:latest
