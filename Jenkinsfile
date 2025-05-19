@@ -17,8 +17,8 @@ pipeline {
         stage('bulding the docker image') {
             steps {
                 script {
-                    docker_build('shyam/portfolio-frontend', 'latest', '.')
-                    docker_build('shyam/portfolio-backend', 'latest', 'backend')
+                    docker_build('portfolio-frontend', 'latest', '.')
+                    docker_build('portfolio-backend', 'latest', 'backend')
                 }
                 echo 'docker build completed!!!!!!!!!!!!!!!!!!!!!!!!!!!'
             }
@@ -28,8 +28,8 @@ pipeline {
             steps {
                 echo '🛠 ️This is pushing the code! to DockerHub !!!!!!!!!!!!!!!!_-------------->'
                 script {
-                    docker_creds('shyam/portfolio-frontend', 'latest', 'shavbb')
-                    docker_creds('shyam/portfolio-backend', 'latest', 'shavbb')
+                    docker_creds('portfolio-frontend', 'latest', 'shavbb')
+                    docker_creds('portfolio-backend', 'latest', 'shavbb')
                 }
                 echo 'This is pushing the code! to DockerHub !!!!!!!!!!!!!!!!_-------------->'
             }
