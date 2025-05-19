@@ -44,9 +44,11 @@ export default function Home() {
               </button>
             </Link>
 
-            <button className="border-1 p-2 rounded-2xl cursor-pointer">
-              Resume
-            </button>
+            <a href="/ShyamBisht.pdf" target="_blank">
+              <button className="border-1 p-2 rounded-2xl cursor-pointer">
+                Resume
+              </button>
+            </a>
           </div>
         </div>
       </div>

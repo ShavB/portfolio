@@ -1,6 +1,25 @@
-version : "3.3"
-services :
-  web:
-    image: "shavbb/shyam-portfolio:latest"
-    ports: 
-      - "8080:80"
+version: "3.8"
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile  # frontend Dockerfile at root
+    ports:
+      - "3000:80"  # Host port 3000 to Nginx port 80
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "5010:5010"
+    networks:
+      - app-network
+
+networks:
+  app-network:

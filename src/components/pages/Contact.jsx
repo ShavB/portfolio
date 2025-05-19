@@ -3,7 +3,7 @@ import ContactForm from "../../features/ContactForm";
 export default function Contact() {
   return (
     <div>
-      <div className="flex items-center mx-4 md:mx-40 justify-center mb-10">
+      <div className="flex items-center mx-4 sm:mx-20 md:mx-50 md: justify-center mb-10">
         <div className="mt-30 mx-10 flex flex-col sm:mx-24 md:mx-30 lg:mx-60 xl:mx-88 w-full">
           <div className="">
             <div>

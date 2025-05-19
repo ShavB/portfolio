@@ -33,7 +33,7 @@ export default function Abouts() {
         <div className="flex flex-col border-t-1 border-b-1 border-gray-600 rounded-2xl gap-3 mt-6">
           <div className="bg-gray-900 rounded-t-2xl p-2 ">About</div>
           <div className="flex flex-col rounded-2xl gap-3 p-2">
-            <div className="flex">
+            <div className="flex sm:item-center justify-center">
               <div className="flex basis-1/3 items-center justify-center overflow-hidden ">
                 <img
                   className="rounded-full h-20 w-20"
@@ -41,11 +41,11 @@ export default function Abouts() {
                   alt="developer img"
                 />
               </div>
-              <div className="text-sm basis-2/3">
+              <div className="text-sm basis-2/3 sm:flex flex-col">
                 <span className="">Shyam Bisht</span>
-                <span>
+                <span className="flex">
                   Digital Craftsman (<p className="text-green-500">Developer</p>{" "}
-                  / Gamer)
+                  )
                 </span>
               </div>
             </div>
@@ -77,98 +77,100 @@ export default function Abouts() {
             </div>
           </div>
         </div>
-        <div className="flex flex-col border-t-1 border-b-1 border-gray-600 rounded-2xl gap-3 mt-6">
-          <div className="bg-gray-900 rounded-t-2xl p-2 ">Front-End</div>
-          <div className="flex flex-col">
-            <div className="flex rounded-2xl gap-3 p-2 ">
-              <div className="flex basis-1/3 items-center justify-center overflow-hidden ">
-                <FaReact size={50} />
+        <div className="md:grid grid-cols-2 gap-4">
+          <div className="flex flex-col border-t-1 border-b-1 border-gray-600 rounded-2xl gap-3 mt-6">
+            <div className="bg-gray-900 rounded-t-2xl p-2 ">Front-End</div>
+            <div className="flex flex-col">
+              <div className="flex rounded-2xl gap-3 p-2 ">
+                <div className="flex basis-1/3 items-center justify-center overflow-hidden ">
+                  <FaReact size={50} />
+                </div>
+                <div className="text-sm flex flex-col basis-2/3">
+                  <span className="text-xl">React</span>
+                  <span>React</span>
+                </div>
               </div>
-              <div className="text-sm flex flex-col basis-2/3">
-                <span className="text-xl">React</span>
-                <span>React</span>
+              <div className="flex rounded-2xl gap-3 p-2 ">
+                <div className="flex basis-1/3 items-center justify-center overflow-hidden ">
+                  <RiTailwindCssLine size={50} />
+                </div>
+                <div className="text-sm flex flex-col basis-2/3">
+                  <span className="text-xl">Tailwind Css</span>
+                  <span>Tailwind Css</span>
+                </div>
               </div>
-            </div>
-            <div className="flex rounded-2xl gap-3 p-2 ">
-              <div className="flex basis-1/3 items-center justify-center overflow-hidden ">
-                <RiTailwindCssLine size={50} />
-              </div>
-              <div className="text-sm flex flex-col basis-2/3">
-                <span className="text-xl">Tailwind Css</span>
-                <span>Tailwind Css</span>
-              </div>
-            </div>
-            <div className="flex rounded-2xl gap-3 p-2 ">
-              <div className="flex basis-1/3 items-center justify-center overflow-hidden ">
-                <SiTypescript size={50} />
-              </div>
-              <div className="text-sm flex flex-col basis-2/3">
-                <span className="text-xl">Typescript</span>
-                <span>Typescript</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-col border-t-1 border-b-1 border-gray-600 rounded-2xl gap-3 mt-6">
-          <div className="bg-gray-900 rounded-t-2xl p-2 ">Back-End</div>
-          <div className="flex flex-col">
-            <div className="flex rounded-2xl gap-3 p-2 ">
-              <div className="flex basis-1/3 items-center justify-center overflow-hidden ">
-                <SiDotnet size={50} />
-              </div>
-              <div className="text-sm flex flex-col basis-2/3">
-                <span className="text-xl">.NET</span>
-                <span>.NET</span>
-              </div>
-            </div>
-            <div className="flex rounded-2xl gap-3 p-2 ">
-              <div className="flex basis-1/3 items-center justify-center overflow-hidden ">
-                <DiNodejs size={50} />
-              </div>
-              <div className="text-sm flex flex-col basis-2/3">
-                <span className="text-xl">Node Js</span>
-                <span>Node Js</span>
+              <div className="flex rounded-2xl gap-3 p-2 ">
+                <div className="flex basis-1/3 items-center justify-center overflow-hidden ">
+                  <SiTypescript size={50} />
+                </div>
+                <div className="text-sm flex flex-col basis-2/3">
+                  <span className="text-xl">Typescript</span>
+                  <span>Typescript</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className="flex flex-col border-t-1 border-b-1 border-gray-600 rounded-2xl gap-3 mt-6">
-          <div className="bg-gray-900 rounded-t-2xl p-2 ">Devops</div>
-          <div className="flex flex-col p-2">
-            <div className="flex rounded-2xl gap-3 p-2 ">
-              <div className="flex basis-1/3 items-center justify-center overflow-hidden ">
-                <FaJenkins size={50} />
+          <div className="flex flex-col border-t-1 border-b-1 border-gray-600 rounded-2xl gap-3 mt-6">
+            <div className="bg-gray-900 rounded-t-2xl p-2 ">Back-End</div>
+            <div className="flex flex-col">
+              <div className="flex rounded-2xl gap-3 p-2 ">
+                <div className="flex basis-1/3 items-center justify-center overflow-hidden ">
+                  <SiDotnet size={50} />
+                </div>
+                <div className="text-sm flex flex-col basis-2/3">
+                  <span className="text-xl">.NET</span>
+                  <span>.NET</span>
+                </div>
               </div>
-              <div className="text-sm flex flex-col basis-2/3">
-                <span className="text-xl">Jenkins</span>
-                <span>Jenkins</span>
-              </div>
-            </div>
-            <div className="flex rounded-2xl gap-3 p-2 ">
-              <div className="flex basis-1/3 items-center justify-center overflow-hidden ">
-                <FaAws size={50} />
-              </div>
-              <div className="text-sm flex flex-col basis-2/3">
-                <span className="text-xl">AWS</span>
-                <span>AWS</span>
-              </div>
-            </div>
-            <div className="flex rounded-2xl gap-3 p-2 ">
-              <div className="flex basis-1/3 items-center justify-center overflow-hidden ">
-                <SiGrafana size={50} />
-              </div>
-              <div className="text-sm flex flex-col basis-2/3">
-                <span className="text-xl">Grafana</span>
-                <span>Grafana</span>
+              <div className="flex rounded-2xl gap-3 p-2 ">
+                <div className="flex basis-1/3 items-center justify-center overflow-hidden ">
+                  <DiNodejs size={50} />
+                </div>
+                <div className="text-sm flex flex-col basis-2/3">
+                  <span className="text-xl">Node Js</span>
+                  <span>Node Js</span>
+                </div>
               </div>
             </div>
-            <div className="flex rounded-2xl gap-3 p-2 ">
-              <div className="flex basis-1/3 items-center justify-center overflow-hidden ">
-                <SiGithubactions size={50} />
+          </div>
+          <div className="flex flex-col border-t-1 border-b-1 border-gray-600 rounded-2xl gap-3">
+            <div className="bg-gray-900 rounded-t-2xl p-2 ">Devops</div>
+            <div className="flex flex-col p-2">
+              <div className="flex rounded-2xl gap-3 p-2 ">
+                <div className="flex basis-1/3 items-center justify-center overflow-hidden ">
+                  <FaJenkins size={50} />
+                </div>
+                <div className="text-sm flex flex-col basis-2/3">
+                  <span className="text-xl">Jenkins</span>
+                  <span>Jenkins</span>
+                </div>
               </div>
-              <div className="text-sm flex flex-col basis-2/3">
-                <span className="text-xl">Github Actions</span>
-                <span>Github Actions</span>
+              <div className="flex rounded-2xl gap-3 p-2 ">
+                <div className="flex basis-1/3 items-center justify-center overflow-hidden ">
+                  <FaAws size={50} />
+                </div>
+                <div className="text-sm flex flex-col basis-2/3">
+                  <span className="text-xl">AWS</span>
+                  <span>AWS</span>
+                </div>
+              </div>
+              <div className="flex rounded-2xl gap-3 p-2 ">
+                <div className="flex basis-1/3 items-center justify-center overflow-hidden ">
+                  <SiGrafana size={50} />
+                </div>
+                <div className="text-sm flex flex-col basis-2/3">
+                  <span className="text-xl">Grafana</span>
+                  <span>Grafana</span>
+                </div>
+              </div>
+              <div className="flex rounded-2xl gap-3 p-2 ">
+                <div className="flex basis-1/3 items-center justify-center overflow-hidden ">
+                  <SiGithubactions size={50} />
+                </div>
+                <div className="text-sm flex flex-col basis-2/3">
+                  <span className="text-xl">Github Actions</span>
+                  <span>Github Actions</span>
+                </div>
               </div>
             </div>
           </div>
