@@ -4,6 +4,11 @@ pipeline {
         label 'portfolio-node'
     }
 
+    environment {
+        FRONTEND_ENV = credentials('frontend_env')
+        BACKEND_ENV = credentials('backend_env')
+    }
+
     stages {
         stage('Checkout source code') {
             steps {
@@ -14,10 +19,22 @@ pipeline {
             }
         }
 
-        stage('bulding the docker image') {
+        stage('Build Frontend Image') {
             steps {
                 script {
+                    // Write frontend .env file dynamically before build
+                    writeFile file: '.env.production', text: readFile(FRONTEND_ENV)
+
+                    // Build frontend Docker image (context = current directory)
                     docker_build('portfolio-frontend', 'latest', '.')
+                }
+            }
+        }
+
+        stage('bulding backend image') {
+            steps {
+                script {
+                    writeFile file: '.env', text: readFile(BACKEND_ENV)
                     docker_build('portfolio-backend', 'latest', 'backend')
                 }
                 echo 'docker build completed!!!!!!!!!!!!!!!!!!!!!!!!!!!'
