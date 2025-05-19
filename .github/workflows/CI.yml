@@ -17,13 +17,13 @@ jobs:
         run: echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
 
       - name: Build frontend docker image
-        run: docker build -t portfolio-frontend:latest .
+        run: docker build -t ${{secrets.DOCKER_HUB_USERNAME}}/portfolio-frontend:latest .
 
       - name: Push frontend Docker image
-        run: docker push portfolio-frontend:latest
+        run: docker push ${{secrets.DOCKER_HUB_USERNAME}}/portfolio-frontend:latest
 
       - name: Build backend docker image
-        run: docker build -t portfolio-backend:latest ./backend
+        run: docker build -t ${{secrets.DOCKER_HUB_USERNAME}}/portfolio-backend:latest ./backend
 
       - name: Push backend Docker image
-        run: docker push /portfolio-backend:latest
+        run: docker push ${{secrets.DOCKER_HUB_USERNAME}}/portfolio-backend:latest
