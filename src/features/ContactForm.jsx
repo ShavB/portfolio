@@ -16,7 +16,7 @@ export default function ContactForm() {
 
   const submitForm = async () => {
     setLoading(true);
-    const response = await fetch(`${EMAIL_API}/api/emailService`, {
+    const response = await fetch(`${EMAIL_API}/emailService`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
