@@ -27,11 +27,13 @@ jobs:
         run: |
           echo "SERVICE_PORT=${SERVICE_PORT}" >> backend/.env
           echo "EMAIL_SERVICE_API=${EMAIL_SERVICE_API}" >> backend/.env
+          cat .env
 
-      - name: List frontend dir and files
+      - name: List backend dir and files
         run: |
           cd backend
           ls -la
+          cat .env
 
       - name: Build frontend docker image
         run: docker build -t ${{secrets.DOCKER_HUB_USERNAME}}/portfolio-frontend:latest .
@@ -48,4 +50,4 @@ jobs:
       - name: Run Docker compose
         run: |
           docker compose down || true
-          docker compose -d
+          docker compose up -d
