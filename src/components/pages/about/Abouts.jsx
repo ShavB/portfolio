@@ -133,7 +133,7 @@ export default function Abouts() {
               </div>
             </div>
           </div>
-          <div className="flex flex-col border-t-1 border-b-1 border-gray-600 rounded-2xl gap-3">
+          <div className="flex flex-col border-t-1 border-b-1 border-gray-600 rounded-2xl gap-3 mt-6">
             <div className="bg-gray-900 rounded-t-2xl p-2 ">Devops</div>
             <div className="flex flex-col p-2">
               <div className="flex rounded-2xl gap-3 p-2 ">
