@@ -30,7 +30,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <div className="fixed w-full top-0 flex items-center justify-center z-50 border-b border-gray-500 bg-[#010610c6]">
+    <div className="fixed w-full top-0 flex items-center justify-center z-50 border-b bg-[#010610c6]">
       <div className="rounded-2xl w-full px-2 sm:px-20 md:px-10 lg:mx-40 xl:mx-60">
         <div className="px-4 flex h-16 items-center justify-between">
           <div>
@@ -38,13 +38,8 @@ export default function Navbar() {
               <SiLinuxserver data-testid="logo-icon" size={30} />
             </Link>
           </div>
-          <div className="flex gap-2 items-center">
+          <div className="flex h-full gap-2 items-center">
             <NavbarTabElements className="hidden sm:flex gap-2" />
-            {/* <IoSearchOutline
-              data-testid="search-icon"
-              className="hover:bg-slate-800 p-2 rounded-2xl cursor-pointer"
-              size={40}
-            /> */}
             <div ref={menuRef} className="relative">
               <RxHamburgerMenu
                 onClick={handleMenu}

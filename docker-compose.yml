@@ -2,7 +2,7 @@ services:
   frontend:
     image: shavbb/portfolio-frontend
     ports:
-      - "3000:80"  # Host port 3000 to Nginx port 80
+      - "3000:80"
     depends_on:
       - backend
     networks:

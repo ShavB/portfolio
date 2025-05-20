@@ -7,7 +7,7 @@ const NavbarTabElements = forwardRef(({ className, handleMenuButton }, ref) => {
     <div ref={ref} className={className}>
       {tabName.map((tab) => (
         <div
-          className="block h-full m-3 px-2 hover:border-b-2 rounded-1xl"
+          className="h-full m-3 px-2 hover:bg-gray-700 rounded-2xl p-2"
           key={tab.id}
           onClick={handleMenuButton}
         >

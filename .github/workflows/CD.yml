@@ -1,5 +1,5 @@
 # .github/workflows/deploy.yml
-name: Deploy to AWS EC2 (Self-hosted)
+name: Deploy to GCP (Self-hosted)
 
 on:
   workflow_run:
