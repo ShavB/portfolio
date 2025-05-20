@@ -16,6 +16,23 @@ jobs:
           DOCKER_PASSWORD: ${{secrets.DOCKER_HUB_PASSWORD}}
         run: echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
 
+      - name: Create .env file (frontend)
+        run: |
+          echo "VITE_API_BASE_URL=${VITE_API_BASE_URL}" >> .env
+
+      - name: List frontend dir and files
+        run: ls -la
+
+      - name: Create .env file (backend)
+        ru: |
+          echo "SERVICE_PORT=${SERVICE_PORT}" >> backend/.env
+          echo "EMAIL_SERVICE_API=${EMAIL_SERVICE_API}" >> backend/.env
+
+      - name: List frontend dir and files
+        run: |
+         cd backend
+         ls -la
+
       - name: Build frontend docker image
         run: docker build -t ${{secrets.DOCKER_HUB_USERNAME}}/portfolio-frontend:latest .
 
@@ -27,3 +44,7 @@ jobs:
 
       - name: Push backend Docker image
         run: docker push ${{secrets.DOCKER_HUB_USERNAME}}/portfolio-backend:latest
+
+      - name: Run Docker compose
+        run: docker compose down || true
+        run: docker compose -d
