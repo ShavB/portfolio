@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: portfolio CI
 
 on:
   push:
@@ -35,19 +35,14 @@ jobs:
           ls -la
           cat .env
 
-      - name: Build frontend docker image
+      - name: Build frontend Docker image
         run: docker build -t ${{secrets.DOCKER_HUB_USERNAME}}/portfolio-frontend:latest .
 
       - name: Push frontend Docker image
         run: docker push ${{secrets.DOCKER_HUB_USERNAME}}/portfolio-frontend:latest
 
-      - name: Build backend docker image
+      - name: Build backend Docker image
         run: docker build -t ${{secrets.DOCKER_HUB_USERNAME}}/portfolio-backend:latest ./backend
 
       - name: Push backend Docker image
         run: docker push ${{secrets.DOCKER_HUB_USERNAME}}/portfolio-backend:latest
-
-      - name: Run Docker compose
-        run: |
-          docker compose down || true
-          docker compose up -d

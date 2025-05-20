@@ -1,8 +1,6 @@
 services:
   frontend:
-    build:
-      context: .
-      dockerfile: Dockerfile  # frontend Dockerfile at root
+    image: shavbb/portfolio-frontend
     ports:
       - "3000:80"  # Host port 3000 to Nginx port 80
     depends_on:
@@ -11,9 +9,7 @@ services:
       - app-network
 
   backend:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
+    image: shavbb/portfolio-backend
     ports:
       - "5010:5010"
     networks:
