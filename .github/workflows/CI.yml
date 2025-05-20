@@ -30,8 +30,8 @@ jobs:
 
       - name: List frontend dir and files
         run: |
-         cd backend
-         ls -la
+          cd backend
+          ls -la
 
       - name: Build frontend docker image
         run: docker build -t ${{secrets.DOCKER_HUB_USERNAME}}/portfolio-frontend:latest .
@@ -46,5 +46,6 @@ jobs:
         run: docker push ${{secrets.DOCKER_HUB_USERNAME}}/portfolio-backend:latest
 
       - name: Run Docker compose
-        run: docker compose down || true
-        run: docker compose -d
+        run: |
+          docker compose down || true
+          docker compose -d
