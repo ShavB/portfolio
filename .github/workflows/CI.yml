@@ -24,7 +24,7 @@ jobs:
         run: ls -la
 
       - name: Create .env file (backend)
-        ru: |
+        run: |
           echo "SERVICE_PORT=${SERVICE_PORT}" >> backend/.env
           echo "EMAIL_SERVICE_API=${EMAIL_SERVICE_API}" >> backend/.env
 
