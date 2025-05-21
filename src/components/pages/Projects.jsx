@@ -21,7 +21,7 @@ export default function Projects() {
                 target="_blank"
                 href="https://github.com/shavb"
               >
-                public
+                public.
               </a>
             </p>
           </div>
