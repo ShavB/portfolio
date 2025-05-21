@@ -31,4 +31,5 @@ jobs:
 
       - name: Start containers
         run: |
-          docker compose up -d --remove-orphans
+          docker compose down
+          docker compose up --build -d -d
