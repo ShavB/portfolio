@@ -5,23 +5,37 @@ services:
       - "80:80"
       - "443:443"
     volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
       - certbot-etc:/etc/letsencrypt
       - certbot-var:/var/lib/letsencrypt
     depends_on:
       - backend
-    networks:
-      - app-network
+    restart: always
 
   backend:
-    image: shavbb/portfolio-backend
+    image: shavbb/portfolio-backend:latest
+    container_name: portfolio-backend
     ports:
       - "5010:5010"
-    networks:
-      - app-network
+    restart: always
+
+  certbot:
+    image: certbot/certbot
+    container_name: certbot
+    volumes:
+      - certbot-etc:/etc/letsencrypt
+      - certbot-var:/var/lib/letsencrypt
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    entrypoint: "/bin/sh -c"
+    command: >
+      "certbot certonly --webroot
+      --webroot-path=/usr/share/nginx/html
+      --email bishtshyam133@gmail.com
+      --agree-tos --no-eff-email
+      -d shyambisht.online -d www.shyambisht.online"
+    depends_on:
+      - frontend
 
 volumes:
   certbot-etc:
   certbot-var:
-
-networks:
-  app-network:
