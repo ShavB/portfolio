@@ -27,7 +27,7 @@ export default function Projects() {
           </div>
         </div>
         <div className="">
-          <h1 className="text-2xl mt-10">All Projects</h1>
+          <h1 className="text-2xl mt-10 border-b-2">All Projects</h1>
           <div className="flex mx-2 mt-8">
             {ProjectsData.map((project) => (
               <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-2 border-1 rounded-2xl w-full p-3">
