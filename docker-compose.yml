@@ -19,18 +19,6 @@ services:
     networks:
       - app-network
 
-    certbot:
-      image: certbot/certbot
-      volumes:
-        - certbot-etc:/etc/letsencrypt
-        - certbot-var:/var/lib/letsencrypt
-        - ./nginx.conf:/etc/nginx/conf.d/default.conf
-      entrypoint: "/bin/sh -c"
-      command: >
-        "certbot certonly --webroot -w /usr/share/nginx/html
-        --email bishtshyam133@gmail.com --agree-tos --no-eff-email
-        -d shyambisht.online -d www.shyambisht.online"
-
 volumes:
   certbot-etc:
   certbot-var:
