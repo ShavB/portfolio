@@ -32,7 +32,7 @@ jobs:
       - name: Create .env file (backend)
         run: |
           echo PORT = $SERVICE_PORT >> backend/.env
-          echo EMAIL_SERVICE_API = "http://0.0.0.0:5010/api" >> backend/.env
+          echo EMAIL_SERVICE_API = $EMAIL_SERVICE_API >> backend/.env
 
       - name: List backend dir and .env
         run: |
