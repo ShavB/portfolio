@@ -7,6 +7,10 @@ on:
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
+    env:
+      VITE_API_BASE_URL: ${{secrets.VITE_API_BASE_URL}}
+      PORT: ${{secrets.SERVICE_PORT}}
+      EMAIL_SERVICE_API: ${{secrets.EMAIL_SERVICE_API}}
 
     steps:
       - uses: actions/checkout@v4
@@ -18,18 +22,19 @@ jobs:
 
       - name: Create .env file (frontend)
         run: |
-          echo "VITE_API_BASE_URL=${VITE_API_BASE_URL}" >> .env
+          echo VITE_API_BASE_URL = $VITE_API_BASE_URL >> .env
 
-      - name: List frontend dir and files
-        run: ls -la
+      - name: List frontend dir and .env
+        run: |
+          ls -la
+          cat .env
 
       - name: Create .env file (backend)
         run: |
-          echo "PORT=${SERVICE_PORT}" >> backend/.env
-          echo "EMAIL_SERVICE_API=${EMAIL_SERVICE_API}" >> backend/.env
-          cat .env
+          echo PORT = $SERVICE_PORT >> backend/.env
+          echo EMAIL_SERVICE_API = $EMAIL_SERVICE_API >> backend/.env
 
-      - name: List backend dir and files
+      - name: List backend dir and .env
         run: |
           cd backend
           ls -la
