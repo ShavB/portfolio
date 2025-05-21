@@ -32,7 +32,7 @@ export default function Home() {
               <CgHello />
             </span>
           </h2>
-          <h1 className="homepage-name text-5xl">I'm Shyam Bisht,</h1>
+          <h1 className="homepage-name text-5xl">I'm Shyam Bisht.</h1>
           <p>
             A Software Developer and DevOps Enthusiast, who loves intuitive,
             clean and modern technologies.
