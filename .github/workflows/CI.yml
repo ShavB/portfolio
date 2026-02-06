@@ -42,13 +42,8 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
-            docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
-            docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/portfolio-frontend:latest
             docker stop portfolio-frontend || true
             docker rm portfolio-frontend || true
-            docker run -d \
-              --name portfolio-frontend \
-              -p 80:80 \
-              -e VITE_API_BASE_URL=${{ secrets.VITE_API_BASE_URL }} \
-              ${{ secrets.DOCKER_HUB_USERNAME }}/portfolio-frontend:latest
+            docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/portfolio-frontend:latest
+            docker run -d --name portfolio-frontend -p 80:80 ${{ secrets.DOCKER_HUB_USERNAME }}/portfolio-frontend:latest
 
