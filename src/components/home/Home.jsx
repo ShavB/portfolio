@@ -38,12 +38,6 @@ export default function Home() {
             clean and modern technologies.
           </p>
           <div className="flex gap-4">
-            <Link to="/contact">
-              <button className="border-1 p-2 rounded-2xl cursor-pointer">
-                Get in Touch
-              </button>
-            </Link>
-
             <a href="/ShyamBisht.pdf" target="_blank">
               <button className="border-1 p-2 rounded-2xl cursor-pointer">
                 Resume
