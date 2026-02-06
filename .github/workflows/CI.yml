@@ -6,7 +6,7 @@ on:
 
 jobs:
   build-and-push:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     env:
       VITE_API_BASE_URL: ${{secrets.VITE_API_BASE_URL}}
       PORT: ${{secrets.SERVICE_PORT}}
@@ -29,22 +29,10 @@ jobs:
 
       - name: Push frontend Docker image
         run: docker push ${{secrets.DOCKER_HUB_USERNAME}}/portfolio-frontend:latest
-
-  deploy: 
-    needs: build-and-push
-    runs-on: ubuntu-latest
-    environment: production
-
-    steps: 
-      - name: Deploy to Proxmox
-        uses: appleboy/ssh-action@master
-        with: 
-          host: ${{ secrets.SERVER_HOST }}
-          username: ${{ secrets.SERVER_USER }}
-          key: ${{ secrets.SERVER_SSH_KEY }}
-          script: |
-            docker stop portfolio-frontend || true
-            docker rm portfolio-frontend || true
-            docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/portfolio-frontend:latest
-            docker run -d --name portfolio-frontend -p 80:80 ${{ secrets.DOCKER_HUB_USERNAME }}/portfolio-frontend:latest
-
+      
+      - name: Deploy container
+        run: |
+          docker stop portfolio-frontend || true
+          docker rm portfolio-frontend || true
+          docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/portfolio-frontend:latest
+          docker run -d --name portfolio-frontend -p 80:80 ${{ secrets.DOCKER_HUB_USERNAME }}/portfolio-frontend:latest
