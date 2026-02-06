@@ -14,9 +14,4 @@ export const tabName = [
     label: "Projects",
     path: "/projects",
   },
-  {
-    id: 4,
-    label: "Contact",
-    path: "/contact",
-  },
 ];
