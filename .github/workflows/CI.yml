@@ -22,7 +22,7 @@ jobs:
 
       - name: Create .env file (frontend)
         run: |
-          echo VITE_API_BASE_URL = $VITE_API_BASE_URL >> .env
+          echo VITE_API_BASE_URL=$VITE_API_BASE_URL >> .env
 
       - name: Build frontend Docker image
         run: docker build -t ${{secrets.DOCKER_HUB_USERNAME}}/portfolio-frontend:latest .
@@ -33,6 +33,7 @@ jobs:
   deploy: 
     needs: build-and-push
     runs-on: ubuntu-latest
+    environment: production
 
     steps: 
       - name: Deploy to Proxmox
