@@ -24,7 +24,7 @@ jobs:
         run: |
           echo VITE_API_BASE_URL = $VITE_API_BASE_URL >> .env
 
-       - name: Build frontend Docker image
+      - name: Build frontend Docker image
         run: docker build -t ${{secrets.DOCKER_HUB_USERNAME}}/portfolio-frontend:latest .
 
       - name: Push frontend Docker image
