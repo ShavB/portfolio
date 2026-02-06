@@ -10,7 +10,6 @@ jobs:
     env:
       VITE_API_BASE_URL: ${{secrets.VITE_API_BASE_URL}}
       PORT: ${{secrets.SERVICE_PORT}}
-      EMAIL_SERVICE_API: ${{secrets.EMAIL_SERVICE_API}}
 
     steps:
       - uses: actions/checkout@v4
@@ -24,30 +23,31 @@ jobs:
         run: |
           echo VITE_API_BASE_URL = $VITE_API_BASE_URL >> .env
 
-      - name: List frontend dir and .env
-        run: |
-          ls -la
-          cat .env
-
-      - name: Create .env file (backend)
-        run: |
-          echo PORT = $SERVICE_PORT >> backend/.env
-          echo EMAIL_SERVICE_API = $EMAIL_SERVICE_API >> backend/.env
-
-      - name: List backend dir and .env
-        run: |
-          cd backend
-          ls -la
-          cat .env
-
-      - name: Build frontend Docker image
+       - name: Build frontend Docker image
         run: docker build -t ${{secrets.DOCKER_HUB_USERNAME}}/portfolio-frontend:latest .
 
       - name: Push frontend Docker image
         run: docker push ${{secrets.DOCKER_HUB_USERNAME}}/portfolio-frontend:latest
 
-      - name: Build backend Docker image
-        run: docker build -t ${{secrets.DOCKER_HUB_USERNAME}}/portfolio-backend:latest ./backend
+  deploy: 
+    needs: build-and-push
+    runs-on: ubuntu-latest
 
-      - name: Push backend Docker image
-        run: docker push ${{secrets.DOCKER_HUB_USERNAME}}/portfolio-backend:latest
+    steps: 
+      - name: Deploy to Proxmox
+        uses: appleboy/ssh-action@v1.0.0
+        with: 
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          scripts: |
+            docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
+            docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/portfolio-frontend:latest
+            docker stop portfolio-frontend || true
+            docker rm portfolio-frontend || true
+            docker run -d \
+              --name portfolio-frontend \
+              -p 80:80 \
+              -e VITE_API_BASE_URL=${{ secrets.VITE_API_BASE_URL }} \
+              ${{ secrets.DOCKER_HUB_USERNAME }}/portfolio-frontend:latest
+
